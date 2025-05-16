@@ -4,14 +4,14 @@ const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // MongoDB URI
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.qrqdszn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const uri = `mongodb+srv://demolivesarver:x2oRw9Ryaqdpl4GV@cluster0.qrqdszn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 // MongoClient setup
 const client = new MongoClient(uri, {
@@ -38,7 +38,7 @@ async function run() {
 
     // POST a new project
     app.post("/project", async (req, res) => {
-      const newProject = req.body;
+      const newProject = req.body;      
       const result = await Projects.insertOne(newProject);
       res.status(201).json(result);
     });
